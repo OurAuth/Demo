@@ -4,7 +4,7 @@
 
 ## OurAuth.Demo.Api
 _(Run on the developer's machine)_  
-* Uri: `https://localhost:5001/swagger`
+* Uri: [https://localhost:5001/swagger](https://localhost:5001/swagger)
 * Username:  `demo`
 * Password:  `P@ssw0rdOfDemo`
 

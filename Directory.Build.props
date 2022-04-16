@@ -34,9 +34,7 @@
   <!-- build props-->
   <PropertyGroup>
     <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
-    <OutDir>$(RepoRoot)artifacts\bin\$(Configuration)\$(MSBuildProjectName)</OutDir>
-    <OutputPath>$(RepoRoot)artifacts\bin\$(Configuration)\$(MSBuildProjectName)</OutputPath>
-    <PackageOutputPath>$(RepoRoot)artifacts\nuget\$(PackageId)</PackageOutputPath>
+    <PackageOutputPath>$(RepoRoot)artifacts\nuget</PackageOutputPath>
     <!--<SatelliteResourceLanguages>en;zh</SatelliteResourceLanguages>-->
     <!--<UseAppHost>false</UseAppHost>-->
   </PropertyGroup>
