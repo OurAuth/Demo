@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Myvas",
+  "classifications": [ "Web", "WebAPI", "OurAuth", "Linux", "macOS", "Windows", "Cloud", "Service" ],
+  "identity": "OurAuth.ProjectTemplates.WebApi",
+  "name": "ASP.NET Core Web API - OurAuth",
+  "description": "A project template for creating an ASP.NET Core application with an example Controller for a RESTful HTTP service. This template can also be used to build a standard API resource in the OurAuth ecosystem. A Swagger UI with OAuth 2.0 and Serilog logging service are also added in.",
+  "shortName": "ourauth.webapi",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "OurAuth.Demo.Api",
+  "preferNameDirectory": true
+}

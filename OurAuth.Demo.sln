@@ -1,0 +1,90 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_", "_", "{1BD19436-DFBE-4AE9-81B5-AF699A1E8914}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		DEPLOY.md = DEPLOY.md
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		global.json = global.json
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0EBB989C-E936-4A7A-844C-312E7543FDA7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C1DB3799-7063-41EE-8523-A8C0AE27AEF1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OurAuth.Demo.Api.IntegrationTests", "tests\OurAuth.Demo.Api.IntegrationTests\OurAuth.Demo.Api.IntegrationTests.csproj", "{370EBF78-2867-4EE9-A5AE-5E7DF578EF10}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{30B3D47D-C558-4C88-A98C-CD30AABFE2B2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OurAuth.ProjectTemplates", "templates\OurAuth.ProjectTemplates\OurAuth.ProjectTemplates.csproj", "{993E0B86-D503-4A8C-98CB-70319F0268E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OurAuth.Demo.Api.Shared", "src\WebApi\OurAuth.Demo.Api.Shared\OurAuth.Demo.Api.Shared.csproj", "{CF5A9465-B765-46F2-9CB4-BB4851F31406}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OurAuth.Demo.Api", "src\WebApi\OurAuth.Demo.Api\OurAuth.Demo.Api.csproj", "{7117428F-F0A4-46B3-ADC0-3E4C9C048059}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{BA0C2016-8931-46F8-884B-AEAEAB62E884}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BlazorServer", "BlazorServer", "{4960A43F-5DDA-4F03-B5D2-6246EFF25144}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OurAuth.Demo.BlazorServer", "src\BlazorServer\OurAuth.Demo.BlazorServer\OurAuth.Demo.BlazorServer.csproj", "{16E2D7F1-EEE3-4F65-9DF5-46144CC72EDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConsoleClient", "ConsoleClient", "{6669AD2B-B946-4AD6-9A70-AB45565350CE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OurAuth.Demo.Api.ConsoleClient", "src\Console\OurAuth.Demo.ConsoleClient\OurAuth.Demo.Api.ConsoleClient.csproj", "{3814B16C-5AB0-4D0F-B0CF-7B4AA6A0F527}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{370EBF78-2867-4EE9-A5AE-5E7DF578EF10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{370EBF78-2867-4EE9-A5AE-5E7DF578EF10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{370EBF78-2867-4EE9-A5AE-5E7DF578EF10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{370EBF78-2867-4EE9-A5AE-5E7DF578EF10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{993E0B86-D503-4A8C-98CB-70319F0268E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{993E0B86-D503-4A8C-98CB-70319F0268E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{993E0B86-D503-4A8C-98CB-70319F0268E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{993E0B86-D503-4A8C-98CB-70319F0268E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF5A9465-B765-46F2-9CB4-BB4851F31406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF5A9465-B765-46F2-9CB4-BB4851F31406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF5A9465-B765-46F2-9CB4-BB4851F31406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF5A9465-B765-46F2-9CB4-BB4851F31406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7117428F-F0A4-46B3-ADC0-3E4C9C048059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7117428F-F0A4-46B3-ADC0-3E4C9C048059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7117428F-F0A4-46B3-ADC0-3E4C9C048059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7117428F-F0A4-46B3-ADC0-3E4C9C048059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16E2D7F1-EEE3-4F65-9DF5-46144CC72EDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E2D7F1-EEE3-4F65-9DF5-46144CC72EDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16E2D7F1-EEE3-4F65-9DF5-46144CC72EDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16E2D7F1-EEE3-4F65-9DF5-46144CC72EDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3814B16C-5AB0-4D0F-B0CF-7B4AA6A0F527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3814B16C-5AB0-4D0F-B0CF-7B4AA6A0F527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3814B16C-5AB0-4D0F-B0CF-7B4AA6A0F527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3814B16C-5AB0-4D0F-B0CF-7B4AA6A0F527}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{370EBF78-2867-4EE9-A5AE-5E7DF578EF10} = {C1DB3799-7063-41EE-8523-A8C0AE27AEF1}
+		{993E0B86-D503-4A8C-98CB-70319F0268E0} = {30B3D47D-C558-4C88-A98C-CD30AABFE2B2}
+		{CF5A9465-B765-46F2-9CB4-BB4851F31406} = {BA0C2016-8931-46F8-884B-AEAEAB62E884}
+		{7117428F-F0A4-46B3-ADC0-3E4C9C048059} = {BA0C2016-8931-46F8-884B-AEAEAB62E884}
+		{BA0C2016-8931-46F8-884B-AEAEAB62E884} = {0EBB989C-E936-4A7A-844C-312E7543FDA7}
+		{4960A43F-5DDA-4F03-B5D2-6246EFF25144} = {0EBB989C-E936-4A7A-844C-312E7543FDA7}
+		{16E2D7F1-EEE3-4F65-9DF5-46144CC72EDB} = {4960A43F-5DDA-4F03-B5D2-6246EFF25144}
+		{6669AD2B-B946-4AD6-9A70-AB45565350CE} = {0EBB989C-E936-4A7A-844C-312E7543FDA7}
+		{3814B16C-5AB0-4D0F-B0CF-7B4AA6A0F527} = {6669AD2B-B946-4AD6-9A70-AB45565350CE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06C8DAB3-38CD-4617-8ADB-66E9D346FD98}
+	EndGlobalSection
+EndGlobal

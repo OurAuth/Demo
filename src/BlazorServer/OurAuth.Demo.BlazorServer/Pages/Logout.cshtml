@@ -1,0 +1,22 @@
+﻿@page
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@using Microsoft.AspNetCore.Authentication.OpenIdConnect
+@attribute [IgnoreAntiforgeryToken]
+
+@functions {
+    public async Task<IActionResult> OnPost()
+    {
+        if (User?.Identity?.IsAuthenticated == true)
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignOutAsync(OpenIdConnectDefaults.AuthenticationScheme, AuthProps());
+        }
+        return Redirect("~/");
+    }
+
+    private AuthenticationProperties AuthProps() => new AuthenticationProperties
+        {
+            RedirectUri = Url.Content("~/")
+        };
+}

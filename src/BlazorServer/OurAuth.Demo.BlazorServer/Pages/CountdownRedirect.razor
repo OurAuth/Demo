@@ -1,0 +1,67 @@
+﻿@* Copyright (c) 2022 FrankH *@
+@*
+Ref. https://www.syncfusion.com/faq/blazor/general/how-can-i-refresh-a-page-automatically-at-specific-time-interval
+*@
+
+@page "/CountdownRedirect"
+
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<PageTitle>Redirect...</PageTitle>
+
+<h1>Redirect...</h1>
+
+<p>After <b>@(Seconds - elapsedSeconds)</b> seconds, you will be redirect to <b>@Title</b> ...</p>
+<p>Click <a href="#" @onclick="@(e=> OnButtonClick())">@Title</a> to act immediately.</p>
+
+@code {
+    [QueryStringParameter]
+    public int Seconds { get; set; }
+    [QueryStringParameter]
+    public string Url { get; set; }
+    [QueryStringParameter]
+    public string Title { get; set; }
+
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+        this.SetParametersFromQueryString(NavigationManager);
+        return base.SetParametersAsync(parameters);
+    }
+
+    private int elapsedSeconds = 0;
+    private Timer _timer;
+
+    private void OnButtonClick()
+    {
+        NavigationManager.NavigateTo(Url, forceLoad: true);
+        _timer?.Dispose();
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        Countdown();
+        return Task.CompletedTask;
+    }
+
+    private void Countdown()
+    {
+        if (Seconds<1) Seconds=5;
+        if (string.IsNullOrWhiteSpace(Url)) { Url="/"; }
+        if (string.IsNullOrWhiteSpace(Title)) Title=Url;
+
+        _timer = new Timer(new TimerCallback(_ =>
+        {
+            elapsedSeconds++;
+            InvokeAsync((Action)(() =>
+            {
+                if (elapsedSeconds > this.Seconds - 1)
+                {
+                    NavigationManager.NavigateTo(Url, forceLoad: true);
+                    _timer?.Dispose();
+                }
+                StateHasChanged();
+            }));
+        }), null, 1000, 1000);
+    }
+}

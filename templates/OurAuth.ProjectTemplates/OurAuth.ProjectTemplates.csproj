@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!--<Nullable>enable</Nullable>-->
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <!-- nuget package -->
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageId>OurAuth.ProjectTemplates</PackageId>
+    <PackageVersion>$(Version)</PackageVersion>
+    <Title>OurAuth ProjectTemplates</Title>
+    <Description>A template to create a project authorized via OurAuth.</Description>
+    <PackageTags>dotnet-new;templates</PackageTags>
+
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="**\*" />
+    
+    <!-- WebApi -->
+    <Content Include="..\..\src\WebApi\**" Exclude="**\.vs\**;**\bin\**;**\obj\**;**\PublishProfiles\**;**\Logs\**\*;**\.config\**;**\*.csproj.user">
+      <Link>templates\WebApi\%(RecursiveDir)/%(FileName)%(Extension)</Link>
+      <Pack>true</Pack>
+      <PackagePath>content\templates\WebApi\</PackagePath>
+    </Content>
+    <Content Include="templates\WebApi\.template.config\template.json">
+      <Pack>true</Pack>
+      <PackagePath>content\templates\WebApi\.template.config\template.json</PackagePath>
+    </Content>
+    
+    <!-- BlazorServer -->
+    <Content Include="..\..\src\BlazorServer\**" Exclude="**\.vs\**;**\bin\**;**\obj\**;**\PublishProfiles\**;**\Logs\**\*;**\.config\**;**\*.csproj.user">
+      <Link>templates\BlazorServer\%(RecursiveDir)/%(FileName)%(Extension)</Link>
+      <Pack>true</Pack>
+      <PackagePath>content\templates\BlazorServer\</PackagePath>
+    </Content>
+    <Content Include="templates\BlazorServer\.template.config\template.json">
+      <Pack>true</Pack>
+      <PackagePath>content\templates\BlazorServer\.template.config\template.json</PackagePath>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,15 @@
+﻿@page
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.OpenIdConnect
+@attribute [IgnoreAntiforgeryToken]
+@functions {
+    public IActionResult OnGet()
+    {
+        return Challenge(AuthProps(), OpenIdConnectDefaults.AuthenticationScheme);
+    }
+
+    private AuthenticationProperties AuthProps() => new AuthenticationProperties
+        {
+            RedirectUri = Url.Content("~/")
+        };
+}

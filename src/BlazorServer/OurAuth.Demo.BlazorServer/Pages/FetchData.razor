@@ -1,0 +1,92 @@
+﻿@page "/weather"
+@attribute [Authorize]
+
+@inject IHttpClientFactory HttpClientFactory
+@inject IHttpContextAccessor HttpContextAccessor
+@inject NavigationManager NavigationManager
+@inject BlazorTimerService TimerService
+
+<PageTitle>Weather forecast</PageTitle>
+
+<h1>Weather forecast</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (forecasts == null)
+{
+    @if (HasError)
+    {
+        <p role="alert">@ErrorMessage</p>
+    }
+    else
+    {
+        <p><em>Loading...</em></p>
+    }
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Summary</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<WeatherForecast> forecasts = new List<WeatherForecast>();
+    private bool HasError;
+    private string ErrorMessage;
+    private bool shouldRender;
+
+    protected override bool ShouldRender() => shouldRender;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var client = HttpClientFactory.CreateClient();
+            var token = await HttpContextAccessor.HttpContext.GetTokenAsync("access_token");
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            client.BaseAddress = new Uri("https://api.demo.ourauth.com");
+            forecasts = await client.GetFromJsonAsync<List<WeatherForecast>>("WeatherForecast");
+            HasError = false;
+            ErrorMessage = string.Empty;
+        }
+        catch (HttpRequestException ex2)
+        {
+            if (ex2.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                //NavigationManager.NavigateTo("~/login", forceLoad: true);
+                TimerService.SetTimer(3000);
+                TimerService.OnElapsed += TimerElapsedHandler;
+            }
+        }
+        catch (Exception ex)
+        {
+            HasError = true;
+            ErrorMessage = ex.Message;
+        }
+        shouldRender = true;
+    }
+
+    private void TimerElapsedHandler()
+    {
+        NavigationManager.NavigateTo("~/Login");
+    }
+}

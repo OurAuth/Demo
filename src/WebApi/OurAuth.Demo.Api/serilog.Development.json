@@ -1,0 +1,22 @@
+{
+    "Serilog": {
+        "MinimumLevel": {
+            "Default": "Information",
+            "Override": {
+                "OurAuth.Demo": "Debug"
+            }
+        },
+        "WriteTo": [
+            {
+                "Name": "Console"
+            },
+            {
+                "Name": "File",
+              "Args": {
+                "path": "Logs\\debug.log",
+                "rollingInterval": "Day"
+              }
+            }
+        ]
+    }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Myvas",
+  "classifications": [ "Web", "Blazor", "OurAuth", "Linux", "macOS", "Windows", "Cloud" ],
+  "identity": "OurAuth.ProjectTemplates.BlazorServer",
+  "name": "Blazor Server App - OurAuth",
+  "description": "A project template for creating a Blazor server app that runs server-side inside an ASP.NET Core app and handles user interactions over a SignalR connection. This template can also be used as a standard web Client with rich dynamic user interfaces (UIs) in the OurAuth ecosystem.",
+  "shortName": "ourauth.blazorserver",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "OurAuth.Demo.BlazorServer",
+  "preferNameDirectory": true
+}

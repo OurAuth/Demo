@@ -1,0 +1,63 @@
+﻿@page "/user"
+@attribute [Authorize]
+
+@using System.Text.Json
+@using System.Text.Json.Serialization
+
+@inject IHttpClientFactory HttpClientFactory
+@inject IHttpContextAccessor HttpContextAccessor
+@inject NavigationManager NavigationManager
+
+<h1>Call web API from a Blazor Server Razor component</h1>
+
+@if (HasError)
+{
+    <p role="alert">@ErrorMessage</p>
+}
+else
+{
+    <ul>
+        <li>@userInfo.Identity?.IsAuthenticated</li>
+        <li>@userInfo.Identity?.Name</li>
+        <li>@userInfo.Identity?.AuthenticationType</li>
+    </ul>
+    <hr />
+    <ul>
+        @if (userInfo?.Claims != null)
+        {
+            foreach (var claim in userInfo?.Claims)
+            {
+                <li>@claim.Type => @claim.Value</li>
+            }
+        }
+    </ul>
+}
+
+@code {
+    private UserInfo userInfo = new UserInfo();
+    private bool HasError;
+    private string ErrorMessage;
+    private bool shouldRender;
+
+    protected override bool ShouldRender() => shouldRender;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var client = HttpClientFactory.CreateClient();
+            var token = await HttpContextAccessor.HttpContext.GetTokenAsync("access_token");
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            client.BaseAddress = new Uri("https://api.demo.ourauth.com/userinfo");
+            userInfo = await client.GetFromJsonAsync<UserInfo>("UserInfo");
+            HasError = false;
+            ErrorMessage = string.Empty;
+        }
+        catch (Exception ex)
+        {
+            HasError = true;
+            ErrorMessage = ex.Message;
+        }
+        shouldRender = true;
+    }
+}
